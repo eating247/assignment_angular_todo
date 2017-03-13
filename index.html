@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="ToDo">
+<head>
+  <title>To Do</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="TodoCtrl">
+
+<h1>To Do App</h1>
+
+<button ng-click="alert('hi')">something</button>
+
+<form name="toDoForm">
+  <label>Task</label>
+  <input type="text" name="todo-text" ng-model="textTask">
+  <label>Due Date</label>
+  <input type="date" name="date"  ng-model="textDate">
+  <input type="submit" name="submit" value="Create Task" ng-click="printTask()">
+</form>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Date</th>
+    <th>Completed</th>
+    <th>Delete</th>
+  </tr>
+  <tr ng-repeat="item in items">
+    <td>{{ item.text }}</td>
+    <td>{{ (item.dueDate.getMonth() + 1) + '-' + (item.dueDate.getDate()) + '-' + (item.dueDate.getFullYear()) }}</td>
+    <td><input type="checkbox" ng-model=item.completed></td>
+    <td ng-click="deleteTask(item)"><a href="">delete</a></td>
+  </tr>
+</table>
+
+<button ng-click="clearCompleted()">Clear Completed</button>
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
