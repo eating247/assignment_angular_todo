@@ -1,0 +1,4 @@
+    <td>{{ item.text }}</td>
+    <td>{{ (item.dueDate.getMonth() + 1) + '-' + (item.dueDate.getDate()) + '-' + (item.dueDate.getFullYear()) }}</td>
+    <td><input type="checkbox" ng-model=item.completed></td>
+    <td ng-click="deleteTask(item)"><a href="">delete</a></td>

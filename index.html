@@ -9,7 +9,7 @@
 
 <h1>To Do App</h1>
 
-<button ng-click="alert('hi')">something</button>
+<button ng-click="changeCompleted()">{{ showCompleted ? 'Hide Completed' : 'Show Completed'}}</button>
 
 <form name="toDoForm">
   <label>Task</label>
@@ -26,7 +26,7 @@
     <th>Completed</th>
     <th>Delete</th>
   </tr>
-  <tr ng-repeat="item in items">
+  <tr ng-repeat="item in items | completedFilter: showCompleted">
     <td>{{ item.text }}</td>
     <td>{{ (item.dueDate.getMonth() + 1) + '-' + (item.dueDate.getDate()) + '-' + (item.dueDate.getFullYear()) }}</td>
     <td><input type="checkbox" ng-model=item.completed></td>
